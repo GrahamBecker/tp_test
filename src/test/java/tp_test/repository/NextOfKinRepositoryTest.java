@@ -24,6 +24,7 @@ public class NextOfKinRepositoryTest extends AbstractTestNGSpringContextTests {
     private Long id;
     @Autowired
     private NextOfKinRepository repository;
+
     @Test
     public void create() throws Exception{
         NextOfKin nextOfKin = NextOfKinFactory

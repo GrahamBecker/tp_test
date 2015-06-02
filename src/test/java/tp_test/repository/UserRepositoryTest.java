@@ -8,11 +8,13 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tp_test.App;
+import tp_test.conf.factory.UserFactory;
 import tp_test.domain.NextOfKin;
 import tp_test.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -26,37 +28,20 @@ public class UserRepositoryTest {
     Long id;
     @Autowired
     UserRepository repository;
-/*
-    @Test
-    public void testCreate() throws Exception {
-
-       // List<User> users = new ArrayList<User>();
-        User user = new User.Builder(31L)
-                .fName("Graham")
-                .lName("Becker")
-                .dob("20/11/1984")
-                .build();
-        repository.save(user);
-        Assert.assertNotNull(user.getId());
-
-        user = repository.findOne(user.getId());
-        Assert.assertEquals("Graham",user.getfName());
-
-    }*/
 
     @Test
     public void create() throws Exception {
+            System.out.println( "Hello World");
+            User user = new User
+                    .Builder(201L)
+                    .fName("Graham")
+                    .lName("Becker")
+                    .dob("20/11/1984")
+                    .build();
 
-        User user = new User
-                .Builder(100L)
-                .fName("Graham")
-                .lName("Becker")
-                .dob("20/11/1984")
-                .build();
+            repository.save(user);
+            id=user.getId();
+            Assert.assertNotNull(user.getId());
+        }
 
-        //repository.save(user);
-
-        id=user.getId();
-        Assert.assertNotNull(user.getId());
-    }
 }
